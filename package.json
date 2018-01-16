@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nock": "^9.1.6",
     "tape": "^4.8.0"
   },
   "dependencies": {

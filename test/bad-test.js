@@ -5,7 +5,7 @@ const App = require('../index.js');
 const testOpts = {
     timeout: 500
 };
-const appUrl = 'localhost:3000'
+const APP_URL = 'http://localhost:3000'
 
 let middlemanApp;
 let mockSessionsClient;
@@ -35,10 +35,10 @@ test('everything ok - 200', testOpts, function t(assert) {
         numActiveSessions: 5
     };
     mockSessionsClient.setResp(resp);
-    request(appUrl, function onResp(err, resp, body) {
+    request(APP_URL, function onResp(err, resp, body) {
         assert.notOk(err);
         assert.equal(200, resp && resp.statusCode);
-        assert.deepEqual(body, {
+        assert.deepEqual(JSON.parse(body), {
             numActiveSessions: 5
         });
         assert.end();
@@ -50,7 +50,7 @@ test('everything not ok - 500', testOpts, function t(assert) {
         statusCode: 500
     };
     mockSessionsClient.setResp(resp);
-    request(appUrl, function onResp(err, resp, body) {
+    request(APP_URL, function onResp(err, resp, body) {
         assert.notOk(err);
         assert.equal(500, resp && resp.statusCode);
         assert.end();
