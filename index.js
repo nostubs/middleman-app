@@ -20,9 +20,9 @@ class MiddlemanApp {
             body = Buffer.concat(body).toString();
             this.sessionsClient.getNumActiveSessions((err, sessionsResp) => {
                 resp.statusCode = sessionsResp.statusCode;
-                if (sessionsResp.numActiveSessions) {
+                if (sessionsResp.numActiveSessions !== undefined) {
                     resp.setHeader('Content-Type', 'application/json');
-                    resp.end(JSON.stringify({
+                    resp.write(JSON.stringify({
                         numActiveSessions: sessionsResp.numActiveSessions
                     }));
                 }
