@@ -13,11 +13,9 @@ class MiddlemanApp {
     }
 
     handler(req, resp) {
-        let body = [];
         req.on('data', (chunk) => {
-            body.push(chunk);
+            // no-op
         }).on('end', () => {
-            body = Buffer.concat(body).toString();
             this.sessionsClient.getNumActiveSessions((err, sessionsResp) => {
                 resp.statusCode = sessionsResp.statusCode;
                 if (sessionsResp.numActiveSessions !== undefined) {

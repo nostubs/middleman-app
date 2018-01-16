@@ -52,5 +52,6 @@ test('everything not ok - 500', testOpts, function t(assert) {
 });
 
 test('teardown', testOpts, function t(assert) {
+    nock.cleanAll();
     middlemanApp.shutdown(assert.end);
 });
