@@ -15,7 +15,7 @@ test('start service', testOpts, function t(assert) {
     middlemanApp = new App({
         sessionsClientUrl: 'http://www.fake-url.com/'
     });
-    mockSessionsClient = new MockSessionsClient()
+    mockSessionsClient = new MockSessionsClient();
     middlemanApp.sessionsClient = mockSessionsClient;
     middlemanApp.start(assert.end);
 });

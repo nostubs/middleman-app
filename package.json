@@ -10,10 +10,12 @@
   "license": "ISC",
   "devDependencies": {
     "async": "^2.6.0",
+    "eslint-config-google": "^0.9.1",
     "nock": "^9.1.6",
     "tape": "^4.8.0"
   },
   "dependencies": {
+    "eslint": "^4.15.0",
     "request": "^2.83.0"
   }
 }

@@ -12,7 +12,8 @@ class SessionsClient {
             }
 
             const parsedBody = body && JSON.parse(body);
-            const numActiveSessions = parsedBody && parsedBody.numActiveSessions;
+            const numActiveSessions = parsedBody &&
+                parsedBody.numActiveSessions;
             return cb(null, {
                 statusCode: resp.statusCode,
                 numActiveSessions: numActiveSessions

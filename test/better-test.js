@@ -11,16 +11,6 @@ const SESSIONS_URL = 'http://localhost:4000';
 
 let middlemanApp;
 
-class MockSessionsClient {
-    setResp(resp) {
-        this.resp = resp;
-    }
-
-    getNumActiveSessions(cb) {
-        cb(null, this.resp);
-    }
-}
-
 test('start service', testOpts, function t(assert) {
     middlemanApp = new App({
         sessionsClientUrl: SESSIONS_URL
